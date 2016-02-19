@@ -1,5 +1,6 @@
 package com.darshilpatel.yahooapiweather;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements WeatherServiceCal
 
     private YahooWeatherService service;
 
+    private ProgressDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,10 @@ public class MainActivity extends AppCompatActivity implements WeatherServiceCal
         locationTextView = (TextView)findViewById(R.id.locationTextView);
 
         service = new YahooWeatherService(this);
+
+        dialog =  new ProgressDialog(this);
+        dialog.setMessage("Loading...");
+        dialog.show();
         service.refreshWeather("Brampton, ON");
 
     }
@@ -44,11 +51,13 @@ public class MainActivity extends AppCompatActivity implements WeatherServiceCal
 
     @Override
     public void serviceSuccess(Channel channel) {
+        dialog.hide();
 
     }
 
     @Override
     public void serviceFailure(Exception exception) {
+        dialog.hide();
         Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
     }
 }
