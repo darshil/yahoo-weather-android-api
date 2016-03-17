@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">"Toronto Weather "</string>
+    <string name="action_settings">Settings</string>
+    <string name="temperature">Temperature</string>
+    <string name="condition">Condition</string>
+    <string name="location">Location</string>
+</resources>
