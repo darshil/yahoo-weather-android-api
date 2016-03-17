@@ -13,9 +13,11 @@
     tools:showIn="@layout/activity_weather">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300px"
+        android:layout_height="300px"
         android:id="@+id/weatherIconImageView"
+
+        android:src="@drawable/sunny"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -25,8 +27,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/temperature"
         android:id="@+id/temperatureTextView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/weatherIconImageView"
+        android:layout_alignStart="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -53,6 +55,7 @@
         android:src="@drawable/purple"
         android:layout_marginBottom="102dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView" />
 
 </RelativeLayout>
